@@ -1,0 +1,224 @@
+{% load static %}
+<html>
+    <head>
+        <title>USER HOME</title>
+        <style>
+            /* Navbar container */
+.navbar {
+  overflow: hidden;
+  {% comment %} background-color: #333; {% endcomment %}
+  background: rgb(2,0,36);
+  background: linear-gradient(180deg,black,black);
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: right;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: grey;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+.pic{
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% 120%;
+}
+
+
+
+.user-name{
+
+
+	position: absolute; 
+	{% comment %} top: 20%; 
+	left: 10%; {% endcomment %}
+	 
+  
+	font-size: 50px; 
+	font-family: Arial, Helvetica, sans-serif; 
+	background: linear-gradient(to right, red, 
+			red); 
+	-webkit-text-fill-color: transparent; 
+	-webkit-background-clip: text; 
+  font-weight: bolder;
+
+
+}
+
+
+
+.align-stretch-grid {
+  margin-top:140px;
+  display: grid;
+  grid-gap: 80px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 550px;
+  align-items: stretch;
+}
+.my-cell {
+  background: rgb(29,252,253);
+  background: linear-gradient(90deg, black, grey );
+  opacity:0.9;
+}
+
+
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: white;
+
+  width:90%;
+  height:20%;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+h2.textcol{
+  color:red;
+}
+
+
+
+        </style>
+    </head>
+    <body class='pic' background="{% static 'sta/images/box.jpg' %}">
+
+
+        <div style="color:blue;" align="center">
+            {% if messages %}
+               {% for msg in messages %}
+                     {{ msg }}
+               {% endfor %}
+            {% endif %}
+         </div>
+
+
+
+        <div class="navbar">
+          <a href="{% url 'logout' %}" onclick="return confirm('Are you sure?')">Logout</a>
+          
+          <a href="{% url 'bet_hist_user' %}">Betting History</a>
+          <a href="{% url 'm_to_b_usr' %}">Coin to wallet</a>
+          <a href="{% url 'm_from_b_usr' %}">Coin from wallet</a>
+       
+            {% comment %} <a href="{% url 'home' %}">Home</a> {% endcomment %}
+           
+          </div>
+
+        <h4 class='user-name' align='center'style='margin-top:10px;'>welcome back....!</h4>
+      </div>
+      
+     <h2 class='textcol' align='center'>Bet balance - 🪙{% if gtg %} {{gtg.bet_amt}} {% else %} 0 {% endif %}</h2>
+     <h2 class='textcol' align='center'>Wallet balance - Rs{% if kmk %} {{kmk.amount}} {% else %} 0 {% endif %}</h2>
+    </div>
+
+      
+
+
+        <div class="align-stretch-grid">
+          <div class="my-cell">
+            <h5 class='user-name'>&nbsp&nbspMake your</h5>
+            <h5 class='user-name' style='margin-top:150px;'>&nbsp&nbsppredictions here</h5>
+            <button class='button-89'style='margin-top:300px;margin-left:28px' type="button" onclick="location.href='{% url 'prdct_olym' %}'" name='mybtn2'>&nbspMake Predictions</button>
+          </div>
+          <div class="my-cell"><h5 class='user-name'>&nbsp&nbspPlay for</h5>
+            <h5 class='user-name' style='margin-top:150px;'>&nbsp&nbspBETTINGS</h5>
+            <button class='button-89'style='margin-top:300px;margin-left:28px' type="button" onclick="location.href='{% url 'plays_for_bet_usr' %}'" name='mybtn2'>&nbspPlay for BET</button></div>
+          <div class="my-cell"><h5 class='user-name'>&nbsp&nbspSee your</h5>
+            <h5 class='user-name' style='margin-top:150px;'>&nbsp&nbspRecent predictions </h5>
+            <h5 class='user-name' style='margin-top:210px;'>&nbsp&nbsphere</h5>
+            <button class='button-89'style='margin-top:300px;margin-left:28px' type="button" onclick="location.href='{% url 'olym_med_prd_usr' %}'" name='mybtn2'>&nbspRecent Predictions</button></div>
+       </div>
+       
+
+
+    </body>
+</html>

@@ -1,0 +1,296 @@
+{% load static %}
+<html lang="en">
+  <head>
+
+
+   <style>
+
+
+
+      .button-89 {
+         --b: 3px;   /* border thickness */
+         --s: .45em; /* size of the corner */
+         --color: white;
+       
+         width:90%;
+         
+         padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+         color: var(--color);
+         --_p: var(--s);
+         background:
+           conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+           var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+         transition: .3s linear, color 0s, background-color 0s;
+         outline: var(--b) solid #0000;
+         outline-offset: .6em;
+         font-size: 16px;
+       
+         border: 0;
+       
+         user-select: none;
+         -webkit-user-select: none;
+         touch-action: manipulation;
+       }
+       
+       .button-89:hover,
+       .button-89:focus-visible{
+         --_p: 0px;
+         outline-color: var(--color);
+         outline-offset: .05em;
+       }
+       
+       .button-89:active {
+         background: var(--color);
+         color: #fff;
+       }
+
+
+
+       .button-85 {
+
+         width:15%;
+
+			padding: 0.6em 2em;
+			border: none;
+			outline: none;
+			color: rgb(255, 255, 255);
+			background: #111;
+			cursor: pointer;
+			position: relative;
+			z-index: 0;
+			border-radius: 10px;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		  }
+		  
+		  .button-85:before {
+			content: "";
+			background: linear-gradient(
+			  45deg,
+			  #ff0000,
+			  #ff7300,
+			  #fffb00,
+			  #48ff00,
+			  #00ffd5,
+			  #002bff,
+			  #7a00ff,
+			  #ff00c8,
+			  #ff0000
+			);
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background-size: 400%;
+			z-index: -1;
+			filter: blur(5px);
+			-webkit-filter: blur(5px);
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			animation: glowing-button-85 20s linear infinite;
+			transition: opacity 0.3s ease-in-out;
+			border-radius: 10px;
+		  }
+		  
+		  @keyframes glowing-button-85 {
+			0% {
+			  background-position: 0 0;
+			}
+			50% {
+			  background-position: 400% 0;
+			}
+			100% {
+			  background-position: 0 0;
+			}
+		  }
+		.button-85:after {
+			z-index: -1;
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: #222;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+		  }
+
+
+
+
+
+        .user-name{
+
+
+         position: absolute; 
+         
+          
+        
+         font-size: 50px; 
+         font-family: Arial, Helvetica, sans-serif; 
+         background: linear-gradient(to right, purple, 
+               blue, blue, purple); 
+         -webkit-text-fill-color: transparent; 
+         -webkit-background-clip: text; 
+        font-weight: bolder;
+      
+      
+      }
+
+      #customers tr:nth-child(even){background-color: black;}
+
+      #customers tr:hover {background-color: black;}
+      
+      
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: black;
+        color: white;
+      }
+
+      h2.black-text{
+        color:black;
+      }
+
+      h5.blck-text{
+        color:black;
+      }
+
+
+
+   </style>
+
+
+
+
+   <title>Plays for betting</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+   <link rel="stylesheet" href="{% static 'tabble/css/style.css' %}">
+
+   </head>
+   <body  style="background-image:url('{% static 'sta/images/bike2.jpg' %}'); background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-size: 100% 120%;">
+
+   <section class="ftco-section" >
+      <div class="container">
+
+
+         <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+               <h5 class="blck-text"><b> Success is not FINAL, Failure is not FATAL: It is the "COURAGE TO CONTINUE THAT COUNT"</b></h5>
+               <h3 class='user-name'>Scommesse Olimpiche</h3><br><br><br><br>
+
+               <h2 class="black-text">Your balance 🪙{{rt.bet_amt}}</h2>
+            </div>
+
+         </div>
+
+
+
+           <div style="color:blue;" align="center">
+            {% if messages %}
+               {% for msg in messages %}
+                     {{ msg }}
+               {% endfor %}
+            {% endif %}
+         </div>
+
+         {% if pp %}
+
+
+         <div class="row">
+            <div class="col-md-12">
+               <div class="table-wrap">
+                  <table class="table table-bordered table-dark table-hover"id='customers' style='background:grey'>
+                    <thead>
+                      <tr>
+
+                        <th>
+                           Sport
+                        </th>
+
+                        <th>
+                           &nbsp&nbsp&nbspFirst country
+                        </th>
+
+                        <th>
+                           &nbsp&nbsp&nbspSecond country
+                        </th>
+
+                        <th>
+                           Country passed
+                        </th>
+
+
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for i in pp %}
+                     {% if not i.final_result %}
+
+                      <tr>
+
+                        <td>
+                           {{i.sport}}
+                        </td>
+
+                        <td>
+                           <button class='button-89' type="button" onclick="location.href='{% url 'coun_pass_usr' i.id %}'" name='mybtn2'>{{i.country}} </button>
+                        </td>
+
+                        <td>
+                           <button class='button-89' type="button" onclick="location.href='{% url 'coun_pass_usr1' i.id %}'" name='mybtn2'>{{i.country1}} </button>
+                        </td>
+
+                        <td>
+                            {% if i.final_result %}
+                              {{i.final_result}}
+                                     {% else %}
+                                       Pending
+                                     {% endif %}
+                        </td>
+
+                  
+
+                      </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+
+         {% else %}
+
+         <h1 align="center" style="color:blue">No plays for betting</h1>
+
+         {% endif %}
+
+      </div>
+      <br><br>
+      <div align="center">
+            <button class='button-85' type="button" onclick="location.href='{% url 'my_bettings_usr' %}'" name='mybtn2'>My bettings</button><br><br><br>
+          <button class='button-85' type="button" onclick="location.href='{% url 'purchase_mon_usr' %}'" name='mybtn2'>Purchase 🪙coins</button><br><br><br>
+         <button class='button-85' type="button" onclick="location.href='{% url 'user_home' %}'" name='mybtn2'>⇦Back</button>
+      </div>
+   </section>
+
+   <script src="{% static 'tabble/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tabble/js/popper.js' %}"></script>
+  <script src="{% static 'tabble/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tabble/js/main.js' %}"></script>
+
+   </body>
+</html>

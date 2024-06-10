@@ -1,0 +1,269 @@
+{% load static %}
+<html lang="en">
+  <head>
+
+
+   <style>
+
+
+
+
+
+      .button-89 {
+         --b: 3px;   /* border thickness */
+         --s: .45em; /* size of the corner */
+         --color: white;
+       
+         width:90%;
+         
+         padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+         color: var(--color);
+         --_p: var(--s);
+         background:
+           conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+           var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+         transition: .3s linear, color 0s, background-color 0s;
+         outline: var(--b) solid #0000;
+         outline-offset: .6em;
+         font-size: 16px;
+       
+         border: 0;
+       
+         user-select: none;
+         -webkit-user-select: none;
+         touch-action: manipulation;
+       }
+       
+       .button-89:hover,
+       .button-89:focus-visible{
+         --_p: 0px;
+         outline-color: var(--color);
+         outline-offset: .05em;
+       }
+       
+       .button-89:active {
+         background: var(--color);
+         color: #fff;
+       }
+
+
+
+       .button-85 {
+
+         width:10%;
+
+			padding: 0.6em 2em;
+			border: none;
+			outline: none;
+			color: rgb(255, 255, 255);
+			background: #111;
+			cursor: pointer;
+			position: relative;
+			z-index: 0;
+			border-radius: 10px;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		  }
+		  
+		  .button-85:before {
+			content: "";
+			background: linear-gradient(
+			  45deg,
+			  #ff0000,
+			  #ff7300,
+			  #fffb00,
+			  #48ff00,
+			  #00ffd5,
+			  #002bff,
+			  #7a00ff,
+			  #ff00c8,
+			  #ff0000
+			);
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background-size: 400%;
+			z-index: -1;
+			filter: blur(5px);
+			-webkit-filter: blur(5px);
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			animation: glowing-button-85 20s linear infinite;
+			transition: opacity 0.3s ease-in-out;
+			border-radius: 10px;
+		  }
+		  
+		  @keyframes glowing-button-85 {
+			0% {
+			  background-position: 0 0;
+			}
+			50% {
+			  background-position: 400% 0;
+			}
+			100% {
+			  background-position: 0 0;
+			}
+		  }
+		.button-85:after {
+			z-index: -1;
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: #222;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+		  }
+
+
+
+
+
+        .user-name{
+
+
+         position: absolute; 
+         
+          
+        
+         font-size: 30px; 
+         font-family: Arial, Helvetica, sans-serif; 
+         background: linear-gradient(to right, blue, 
+               cyan, cyan, cyan); 
+         -webkit-text-fill-color: transparent; 
+         -webkit-background-clip: text; 
+        font-weight: bolder;
+      
+      
+      }
+
+
+
+
+
+   </style>
+   <title>My bettings</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="{% static 'tabble/css/style.css' %}">
+ 
+    </head>
+    <body  style="background-image:url('{% static 'sta/images/badminton1.jpg' %}'); background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+   background-size: 100% 115%;">
+ 
+    <section class="ftco-section" >
+       <div class="container">
+          <div class="row justify-content-center">
+             <div class="col-md-6 text-center mb-5">
+                <h2 class="user-name">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMY BETTINGS</h2>
+             </div>
+          <div style="color:blue;" align="center">
+             {% if messages %}
+                {% for msg in messages %}
+                      {{ msg }}
+                {% endfor %}
+             {% endif %}
+          </div>
+          </div>
+ 
+          {% if fdf %}
+ 
+          <div class="row">
+             <div class="col-md-12">
+                <div class="table-wrap">
+                  <br>  <br>
+                   <table class="table table-bordered table-dark table-hover"style='background: rgb(29,252,253);
+                   background: linear-gradient(90deg, rgba(29,252,253,0.4962359943977591) 34%, rgba(131,58,180,1) 86%);'>
+                     <thead>
+                       <tr>
+ 
+                         <th>
+                            Sport
+                         </th>
+ 
+                         <th>
+                            First country
+                         </th>
+                         <th>
+                            Second country
+                         </th>
+ 
+                                 <th>
+                                     My betting
+                                 </th>
+ 
+                         <th>
+                            Country passed
+                         </th>
+ 
+                       </tr>
+                     </thead>
+ 
+                     <tbody>
+                     {% for i in fdf %}
+ 
+                       <tr>
+ 
+                         <td>
+                            {{i.bet_playy.sport}}
+                         </td>
+ 
+                         <td>
+                            {{i.bet_playy.country}}
+                         </td>
+ 
+                         <td>
+                            {{i.bet_playy.country1}}
+                         </td>
+ 
+                                 <td>
+                                     {{i.pred_coun}}
+                                 </td>
+ 
+                         <td>
+                                     {% if i.bet_playy.final_result %}
+                            {{i.bet_playy.final_result}}
+                                     {% else %}
+                                     Pending
+                                     {% endif %}
+                                    </td>
+
+
+                                </tr>
+          
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                         </div>
+                      </div>
+                   </div>
+          
+                   {% else %}
+          
+                   <h1 align="center" style="color:blue">You have not done any bettings yet</h1>
+          
+                   {% endif %}
+          
+                </div>
+                <br><br>
+                <div align="center">
+                   <button class='button-85' type="button" onclick="location.href='{% url 'plays_for_bet_usr' %}'" name='mybtn2'>⇦Back</button>
+                </div>
+             </section>
+          
+             <script src="{% static 'tabble/js/jquery.min.js' %}"></script>
+            <script src="{% static 'tabble/js/popper.js' %}"></script>
+            <script src="{% static 'tabble/js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'tabble/js/main.js' %}"></script>
+          
+             </body>
+          </html>
+          

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plays for betting</title>
+  <style>
+    .board {
+  display: flex;
+  flex-wrap: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#2a2c42, #060606);
+  color: #d8d8c9;
+  font-family: Helvetica, Arial;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.lottobox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+}
+.lottobox .lotto {
+  display: flex;
+  flex-wrap: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 120px;
+  width: 300px;
+  border: 4px solid #d8d8c9;
+  border-radius: 10%;
+  box-shadow: 0px 0px 15px #d8d8c9;
+  text-shadow: 0px 0px 10px #d8d8c9;
+  font-size: 1.9em;
+  opacity: 0.95;
+  transition: 0.4s;
+  margin:40px;
+}
+.lottobox .lotto:hover {
+  box-shadow: 0px 0px 25px #d8d8c9;
+  text-shadow: 0px 0px 20px #d8d8c9;
+}
+
+.buttonbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 820px;
+  height: 40px;
+  margin: 0 0.5em 1em 0.5em;
+}
+.buttonbox .betbtn {
+  width: 200px;
+  height: 28.5714285714px;
+  background-color: transparent;
+  color: #d8d8c9;
+  border: 2px solid #d8d8c9;
+  border-radius: 0.6em;
+  box-shadow: 0px 0px 10px #d8d8c9;
+  text-shadow: 0px 0px 10px #d8d8c9;
+  font-size: 0.82em;
+  margin: 1em;
+  opacity: 0.95;
+  transition: 0.4s;
+}
+.buttonbox .betbtn:hover {
+  box-shadow: 0px 0px 20px #d8d8c9;
+  text-shadow: 0px 0px 15px #d8d8c9;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.buttonbox .betbtn:active {
+  box-shadow: 0px 0px 10px #d8d8c9;
+  text-shadow: 0px 0px 10px #d8d8c9;
+  transform: scale(0.98);
+  opacity: 0.7;
+}
+
+h1 {
+  margin: 0.2em;
+  opacity: 0.95;
+}
+  </style>
+</head>
+<body>
+
+<div class="board">
+<h2 id="score">PLAYS FOR BETTING (Account balance - Rs {{rt.bet_amt}})</h2>
+
+
+
+       <div style="color:blue;" align="center">
+            {% if messages %}
+               {% for msg in messages %}
+                     {{ msg }}
+               {% endfor %}
+            {% endif %}
+         </div>
+
+
+</div>
+
+
+
+ {% if pp %}
+
+
+
+
+{% for i in pp %}
+<div class="board">
+
+
+      <h1 id="guess">Sport - {{i.sport}}</h1>
+
+
+    <section class="lottobox">
+    <div class="lotto">{{i.country}}</div>
+     <div class="lotto">{{i.country1}}</div>
+  </section>
+
+  <h1 id="guess">Final result</h1>
+
+      <section class="lottobox">
+            <div class="lotto"> {% if i.final_result %}    {{i.final_result}} won    {% else %}   Pending    {% endif %}</div>
+        </section>
+
+  <section class="buttonbox">
+    <button class="betbtn" id="betodd">
+      {{i.country}} will pass
+    </button>
+    <button class="betbtn" id="betreset">
+      Reroll
+    </button>
+    <button class="betbtn" id="beteven">
+      Even
+    </button>
+  </section>
+
+  <h1 id="score">Won: 0 | Lost: 0 | Winrate: 0%</h1>
+</div>
+{% endfor %}
+
+{% else %}
+
+    <h1 align="center" style="color:blue">No plays for betting</h1>
+
+{% endif %}
+
+
+
+      <div align="center">
+            <button type="button" onclick="location.href='{% url 'my_bettings_usr' %}'" name='mybtn2'>My bettings</button>
+          <button type="button" onclick="location.href='{% url 'purchase_mon_usr' %}'" name='mybtn2'>Purchase money</button>
+         <button type="button" onclick="location.href='{% url 'user_home' %}'" name='mybtn2'>Back</button>
+      </div>
+
+</body>
+</html>

@@ -1,0 +1,625 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Olympics</title>
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'sta/css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{% static 'sta/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'sta/css/responsive.css' %}" rel="stylesheet" />
+<style>
+  .hero_area {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-image: url({% static 'sta/images/bggif2.gif' %});
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+
+
+
+ 
+  .button-85 {
+    padding: 0.6em 2em;
+    border: none;
+    outline: none;
+    color: rgb(255, 255, 255);
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    }
+    
+    .button-85:before {
+    content: "";
+    background: linear-gradient(
+      45deg,
+      #ff0000,
+      #ff7300,
+      #fffb00,
+      #48ff00,
+      #00ffd5,
+      #002bff,
+      #7a00ff,
+      #ff00c8,
+      #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+    }
+    
+    @keyframes glowing-button-85 {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+    }
+  .button-85:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #222;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    }
+
+
+
+  .user-name{
+
+
+    position: absolute; 
+    {% comment %} top: 20%; 
+    left: 10%; {% endcomment %}
+     
+    
+    font-size: 10px; 
+    font-family: Arial, Helvetica, sans-serif; 
+    background: linear-gradient(to right, #f32170, 
+        #ff6b08, #cf23cf, #eedd44); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    font-weight: bolder;
+  
+  
+  }
+
+
+
+  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link {
+    margin: 10px 30px;
+    padding: 0;
+    padding-bottom: 3px;
+    color: black;
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  
+  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item .nav-link::after {
+    display: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item.active a::after, .custom_nav-container.navbar-expand-lg .navbar-nav .nav-item:hover a::after {
+    display: block;
+    background-color: #ff2953;
+  }
+
+
+
+  .contact_section {
+    position: relative;
+    background-color: black;
+    color: #ffffff;
+  }
+
+
+
+
+  .slider_section .detail-box a {
+    display: inline-block;
+    padding: 8px 35px;
+    background-color: black;
+    border: 1.5px solid #ffffff;
+    color: #ffffff;
+    border-radius: 0px;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
+    text-transform: uppercase;
+    margin-top: 35px;
+  }
+  
+  .slider_section .detail-box a:hover {
+    background-color: purple;
+    color: white;
+  }
+
+
+  .slider_section #carouselExampleIndicators .carousel-indicators li {
+    width: 14px;
+    height: 14px;
+    background-color: black;
+    border: 2px solid #ffffff;
+    border-radius: 100%;
+    opacity: 1;
+  }
+
+
+
+  
+
+
+  .detail-box {
+    background: linear-gradient(123deg, #71b8e7,#9b59b6);
+    padding:40px
+  }
+
+
+  .imgsize {
+    width:1000px;
+  }
+
+
+  
+  
+
+ 
+
+
+</style>  
+
+</head>
+
+<body>
+
+
+        <div style="color:blue;" align="center">
+            {% if messages %}
+               {% for msg in messages %}
+                     {{ msg }}
+               {% endfor %}
+            {% endif %}
+         </div>
+
+
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          
+            <span>
+              Welcome to
+             <h1> Scommesse Olimpiche</h1>
+            </span>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+
+                  <li class="nav-item ">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+
+
+                <!--
+
+                <li class="nav-item ">
+                  <a class="nav-link" href="why.html"> Why us </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link" href="trainer.html"> trainers</a>
+                </li>
+
+                -->
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#cont4"> Contact Us</a>
+                </li>
+
+
+
+
+
+              </ul>
+
+              <!--
+              <div class="user_option">
+                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                  <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                </form>
+              </div>
+              -->
+
+
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative" >
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style='margin-top:800px;'>
+        <div class="carousel-inner" style='color:black'>
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                  
+                    <h3>
+                     level up 
+                    
+                    </h3>
+                    <h3>
+                    
+                      your experience
+                     </h3>
+                    <h2>
+                      most trustable & secure
+                    </h2>
+                    <h1>
+                    Betting Platform
+                    </h1>
+                    <p>
+                      The most important thing in the Olympic Games is not winning but taking part; the essential thing in life is not conquering but fighting well. ...
+                    </p>
+                    <div>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h3>
+                      WHY USE OUR SITE ? 
+                     
+                     </h3>
+                    
+                    <p>
+                     
+When you need accurate information and useful tips, you ask the experts. Our team consists of a number of experienced betting enthusiasts with many years of experience in the industry. From passionate poker players and sports betting enthusiasts, to former employees of online betting sites – our team knows what is in the industry and wants to share our expertise with you. Thanks to our broad network in the industry, we can also offer our visitors unique and fantastic benefits, both for new and recurring players. We also know which traps to avoid and always filter out the betting sites that are not the best solution for serious players. In summary, if you are looking for quality, bonuses, free spins and a professional attitude towards gambling then you are in the right place.
+                    </p>
+                    <div class="">
+                      <a href="#cont4">
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h3>
+                      SECURITY 
+                     
+                     </h3>
+                     
+                    <p>
+                      Everything begins with safety. Your winnings mean nothing if your account is hacked or if the website is operated without a proper license. The online betting industry is heavily regulated, but nevertheless some rogue suppliers succeed
+
+market players to get away. To safeguard your security and peace of mind, we only offer betting sites that meet the requirements for secure payment methods, have the right licenses for games and secure websites. In addition, we will never market betting apps with consistently bad reviews. When choosing a betting app from our website, you can feel confident that your personal information, payment details and most importantly – your money – are in safe hands
+                    </p>
+                    <div class="">
+                      <a href="#cont4">
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h3>
+                      level up 
+                     
+                     </h3>
+                     <h3>
+                     
+                       your experience
+                      </h3>
+                     <h2>
+                       most trustable & secure
+                     </h2>
+                     <h1>
+                     Betting Platform
+                     </h1>
+                    <p>
+                      The most important thing in the Olympic Games is not winning but taking part; the essential thing in life is not conquering but fighting well. ...
+                    </p>
+                    <div class="">
+                      <a href="#cont4">
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div class="col-lg-10 col-md-11 mx-auto">
+                <div class="detail-box">
+                  <div>
+                    <h3>
+                      level up 
+                     
+                     </h3>
+                     <h3>
+                     
+                       your experience
+                      </h3>
+                     <h2>
+                       most trustable & secure
+                     </h2>
+                     <h1>
+                     Betting Platform
+                     </h1>
+                    <p>
+                      The most important thing in the Olympic Games is not winning but taking part; the essential thing in life is not conquering but fighting well. ...
+                    </p>
+                    <div class="">
+                      <a href="#cont4">
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        
+        </ol>
+      </div>
+    </section>
+    
+  </div>
+  
+
+
+
+
+
+ 
+
+
+
+   
+
+
+
+  <section class="heathy_section layout_padding"  style='background:linear-gradient(180deg, white,black,black);'>
+    <div class="container" style='width:2000px;'>
+
+      <div class="row" style='margin-top:500px;margin-left:0px;'>
+        <div class="col-md-12 mx-auto">
+          <div class="detail-box" style='background: linear-gradient(180deg, grey,black,black);'>
+
+            <h1>About our Bonus</h1>
+
+
+            <p>BONUSES
+              It is difficult to think of online games today without the word “bonus” appearing. Every betting offers them. However, some are better than others. Is it an actual cash bonus, free spins or “fake money”? How do you compare which betting app has the best deal for new players? Which games offer the best bonuses? Fortunately, we give you all that information. And not only that, our partnerships with the best providers of online betting app allow us to offer incredible registration bonuses for new players. Register today and enjoy incredible bonus offers that no other betting app can match. There is really no better way to start your first exciting betting app experience than with a generous bonus that doubles, triples or even quadruples your first deposit!</p>
+           
+<br><br><br><br><br><br>
+<h1>Payment Options</h1>
+
+
+<p>India has always been at the forefront of technology and this is extra obvious when it comes to payment options for online betting apps. There is something for everyone. From traditional credit card payment with VISA or Mastercard, direct bank transfer to e-wallets like Upi and Bitcoin. In many cases, the betting app offer several different alternatives to the respective payment methods. This is an obvious benefit to the players because some may not have a credit card, or you may feel more comfortable transferring money through your internet bank, rather than disclosing your credit card information. In summary, it has never been easier to deposit money and get started with the game of your favourite betting website.
+</p><br><br><br><br><br><br>
+
+<h1>Security</h1>
+<p>Everything begins with safety. Your winnings mean nothing if your account is hacked or if the website is operated without a proper license. The online betting industry is heavily regulated, but nevertheless some rogue suppliers succeed
+
+  market players to get away. To safeguard your security and peace of mind, we only offer betting sites that meet the requirements for secure payment methods, have the right licenses for games and secure websites. In addition, we will never market betting apps with consistently bad reviews. When choosing a betting app from our website, you can feel confident that your personal information, payment details and most importantly – your money – are in safe hands
+</p><br><br><br><br><br><br>
+
+<h1>Top Pins</h1><br><br>
+            <img class='imgsize' src="{% static 'sta/images/top.jpg' %}" ><br><br><br><br><br><br><br><br>
+          
+            <img class='imgsize' src="{% static 'sta/images/climbing.jpg' %}" >
+            <p>
+              2024 IFSC Sport Climbing World Cup Boulder, Keqiao
+            </p><br><br><br>
+            <img class='imgsize' src="{% static 'sta/images/badminton.jpg' %}" alt="">
+            <p>
+              Badminton Asia Championships 2024: Malvika Bansod in main draw
+            </p><br><br><br>
+            <img class='imgsize'  src="{% static 'sta/images/boxing.jpg' %}" alt="">
+            <p>
+              BIas Fernandez backs Nikhat Zareen to win Olympic medal
+            </p><br><br><br>
+            <img class='imgsize' src="{% static 'sta/images/aiswarya.jpg' %}" alt="">
+            <p>
+              Aishwarya Mishra’s Asian Athletics Championships 2023 bronze medal upgraded
+            </p><br><br><br>
+            <img class='imgsize' src="{% static 'sta/images/sindhu.jpg' %}" alt="">
+            <p>
+              PV Sindhu's favourite weapon against stress - a paintbrush or a pencil
+            </p><br><br><br><br><br><br><br>
+
+
+            <p>Our intended audience for these free online social games is adults only. Furthermore, the games are not offering users with ‘real money’ nor will they give people the chance to win tangible prizes or real cash. Remember that practising and succeeding with social online betting websites titles does not mean you are guaranteed to win on ‘real money’ games. As our titles are absolutely FREE, there is no chance to use real money as you play.
+            </p>
+            <br><br>
+            <p>Get connected with us.Login or Sign Up for Free</p>
+            <div class="btn-box">
+              <a href="{% url 'login' %}">
+                Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+  <section class="contact_section " style='margin-top:0px;'>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="{% static 'sta/images/bggif.gif' %}" alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6">
+
+
+
+          <div class="form_container pr-0 pr-lg-5 mr-0 mr-lg-2" id="cont4">
+            <div class="heading_container">
+              <h2>
+                GET IN TOUCH
+              </h2>
+            </div>
+
+
+            <form action="{% url 'user_message' %}" method="post">
+              {% csrf_token %}
+              <div>
+                <input type="text" placeholder="Name" name="nme" required/>
+              </div>
+              <div>
+                <input type="email" placeholder="Email" name="emm" required/>
+              </div>
+              <div>
+                <input type="tel" placeholder="Phone Number" name="pho" pattern="[0-9]{10}" required/>
+              </div>
+              <div>
+                <input type="text" class="message-box" name="msg" placeholder="Message" required/>
+              </div>
+              <div class="d-flex ">
+                <button class='button-85' type="submit">Send </button>   
+                
+              
+              </div>
+            </form>
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <script src="{% static 'sta/js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'sta/js/bootstrap.js' %}"></script>
+
+</body>
+
+</html>

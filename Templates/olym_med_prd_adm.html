@@ -1,0 +1,236 @@
+{% load static %}
+<html lang="en">
+  <head>
+	<style>
+
+
+
+
+		.button-85 {
+			padding: 0.6em 2em;
+			border: none;
+			outline: none;
+			color: rgb(255, 255, 255);
+			background: #111;
+			cursor: pointer;
+			position: relative;
+			z-index: 0;
+			border-radius: 10px;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+		  }
+		  
+		  .button-85:before {
+			content: "";
+			background: linear-gradient(
+			  45deg,
+			  #ff0000,
+			  #ff7300,
+			  #fffb00,
+			  #48ff00,
+			  #00ffd5,
+			  #002bff,
+			  #7a00ff,
+			  #ff00c8,
+			  #ff0000
+			);
+			position: absolute;
+			top: -2px;
+			left: -2px;
+			background-size: 400%;
+			z-index: -1;
+			filter: blur(5px);
+			-webkit-filter: blur(5px);
+			width: calc(100% + 4px);
+			height: calc(100% + 4px);
+			animation: glowing-button-85 20s linear infinite;
+			transition: opacity 0.3s ease-in-out;
+			border-radius: 10px;
+		  }
+		  
+		  @keyframes glowing-button-85 {
+			0% {
+			  background-position: 0 0;
+			}
+			50% {
+			  background-position: 400% 0;
+			}
+			100% {
+			  background-position: 0 0;
+			}
+		  }
+		.button-85:after {
+			z-index: -1;
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: #222;
+			left: 0;
+			top: 0;
+			border-radius: 10px;
+		  }
+
+		  .pic{
+
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-size: 100% 190%;
+		}
+
+
+		#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+		#customers tr:hover {background-color: #ddd;}
+		
+		#customers th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #04AA6D;
+		  color: white;
+		}
+
+     
+	</style>
+
+
+
+
+  	<title>Olympic medal predictions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="{% static 'tabble/css/style.css' %}">
+
+	</head>
+	<body class='pic' style='background-image:url({% static 'sta/images/adminbg.gif' %});'>>
+
+
+	
+
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">OLYMPIC MEDAL PREDICTIONS</h2>
+				</div>
+			<div style="color:blue;" align="center">
+				{% if messages %}
+					{% for msg in messages %}
+							{{ msg }}
+					{% endfor %}
+				{% endif %}
+			</div>
+			</div>
+
+			{% if ggg %}
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+						<table class="table table-bordered table-hover" id='customers'style="background: rgb(29,79,157);
+						background: linear-gradient(179deg, rgba(29,79,157,1) 0%, rgba(81,157,138,1) 83%);">
+						  <thead>
+						    <tr>
+
+                                <th>
+									User
+								</th>
+
+								<th>
+									Gender
+								</th>
+
+								<th>
+									Age
+								</th>
+
+								<th>
+									Height
+								</th>
+
+								<th>
+									Team
+								</th>
+
+								<th>
+									Event
+								</th>
+
+								<th>
+									Expected medal
+								</th>
+
+						    </tr>
+						  </thead>
+
+						  <tbody>
+						  {% for i in ggg %}
+
+						    <tr style="color:black;">
+
+                                 <td>
+									{{i.olym_reg.user.first_name}} {{i.olym_reg.user.last_name}}
+								 </td>
+
+								<td>
+									{{i.gender}}
+								</td>
+
+								<td>
+									{{i.age}}
+								</td>
+
+								<td>
+									{{i.height}}
+								</td>
+
+								<td>
+									{{i.team}}
+								</td>
+
+								<td>
+									{{i.event}}
+								</td>
+
+								<td>
+									{{i.medal_status}}
+								</td>
+
+						    </tr>
+
+						  {% endfor %}
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			{% else %}
+
+			<h1 align="center" style="color:white">No predictions available</h1>
+
+			{% endif %}
+
+		</div>
+		<br><br>
+		<div align="center">
+			<button class='button-85' type="button" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>Back</button>
+		</div>
+	</section>
+
+	<script src="{% static 'tabble/js/jquery.min.js' %}"></script>
+  <script src="{% static 'tabble/js/popper.js' %}"></script>
+  <script src="{% static 'tabble/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'tabble/js/main.js' %}"></script>
+
+	</body>
+</html>
+
