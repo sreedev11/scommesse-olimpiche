@@ -12,3 +12,5 @@ develop predictive models capable of forecasting the medal achievements of athle
 increasing accuracy. This is an Olympic medal prediction system that harnesses historical
 data, statistical methodologies, and machine learning algorithms to forecast the medal for
 participating athlete
+
+model and dataset link : https://huggingface.co/Sreedev11
